@@ -1,0 +1,327 @@
+<Window x:Class="ShortTermMinePlanning.MainPlanningWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="📋 صفحه اصلی برنامه‌ریزی معدن" 
+        Height="800" Width="1400"
+        MinHeight="700" MinWidth="1200"
+        WindowStartupLocation="CenterScreen"
+        FlowDirection="RightToLeft"
+        Background="#F0F2F5"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="CanResizeWithGrip">
+    
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Title Bar -->
+        <Border Grid.Row="0" Grid.ColumnSpan="5" 
+                Background="#2C3E50" 
+                Margin="0,0,0,10" Padding="10"
+                CornerRadius="5">
+            <TextBlock Text="📊 برنامه‌ریزی استخراج معدن - مدل حداکثر سود" 
+                       FontSize="18" FontWeight="Bold" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <!-- Section 1: Time Period -->
+        <Border Grid.Row="1" Grid.Column="0" 
+                BorderBrush="#3498DB" BorderThickness="2" 
+                Margin="3" Background="White"
+                CornerRadius="5">
+            <StackPanel Margin="8">
+                <Border Background="#3498DB" Padding="8" Margin="0,0,0,8" CornerRadius="3">
+                    <TextBlock Text="📅 1. دوره زمانی" FontSize="14" FontWeight="Bold" Foreground="White"/>
+                </Border>
+                
+                <Button x:Name="btnAddPeriod" Click="BtnAddPeriod_Click"
+                        Background="#3498DB" Foreground="White"
+                        Height="35" Margin="0,0,0,8">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="➕ " FontSize="14"/>
+                        <TextBlock Text="افزودن دوره زمانی" FontSize="12"/>
+                    </StackPanel>
+                </Button>
+                
+                <ScrollViewer Height="200">
+                    <ListBox x:Name="lstPeriods" BorderBrush="#E2E8F0" Background="White">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#E2E8F0" BorderThickness="0,0,0,1" Padding="5">
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" FontSize="11">
+                                            <Run Text="از: "/><Run Text="{Binding StartDate}"/>
+                                            <Run Text=" تا: "/><Run Text="{Binding EndDate}"/>
+                                        </TextBlock>
+                                        <TextBlock FontSize="10" Foreground="#7F8C8D">
+                                            <Run Text="ظرفیت استخراج: "/><Run Text="{Binding ExtractionCapacity}"/>
+                                            <Run Text="{Binding ExtractionCapacityUnit}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+
+        <!-- Section 2: Extraction Block -->
+        <Border Grid.Row="1" Grid.Column="1" 
+                BorderBrush="#27AE60" BorderThickness="2" 
+                Margin="3" Background="White"
+                CornerRadius="5">
+            <StackPanel Margin="8">
+                <Border Background="#27AE60" Padding="8" Margin="0,0,0,8" CornerRadius="3">
+                    <TextBlock Text="⛏️ 2. بلوک استخراج" FontSize="14" FontWeight="Bold" Foreground="White"/>
+                </Border>
+                
+                <Button x:Name="btnAddBlock" Click="BtnAddBlock_Click"
+                        Background="#27AE60" Foreground="White"
+                        Height="35" Margin="0,0,0,8">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="➕ " FontSize="14"/>
+                        <TextBlock Text="افزودن بلوک استخراج" FontSize="12"/>
+                    </StackPanel>
+                </Button>
+                
+                <ScrollViewer Height="200">
+                    <ListBox x:Name="lstBlocks" BorderBrush="#E2E8F0" Background="White">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#E2E8F0" BorderThickness="0,0,0,1" Padding="5">
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" FontSize="11">
+                                            <Run Text="تن: "/><Run Text="{Binding Tonnage}"/>
+                                            <Run Text="{Binding TonnageUnit}"/>
+                                        </TextBlock>
+                                        <TextBlock FontSize="10" Foreground="#7F8C8D">
+                                            <Run Text="عیار: "/><Run Text="{Binding Grade}"/>
+                                            <Run Text="%"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+
+        <!-- Section 3: Destination -->
+        <Border Grid.Row="1" Grid.Column="2" 
+                BorderBrush="#E74C3C" BorderThickness="2" 
+                Margin="3" Background="White"
+                CornerRadius="5">
+            <StackPanel Margin="8">
+                <Border Background="#E74C3C" Padding="8" Margin="0,0,0,8" CornerRadius="3">
+                    <TextBlock Text="🏭 3. مقصد" FontSize="14" FontWeight="Bold" Foreground="White"/>
+                </Border>
+                
+                <Button x:Name="btnAddDestination" Click="BtnAddDestination_Click"
+                        Background="#E74C3C" Foreground="White"
+                        Height="35" Margin="0,0,0,8">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="➕ " FontSize="14"/>
+                        <TextBlock Text="افزودن مقصد" FontSize="12"/>
+                    </StackPanel>
+                </Button>
+                
+                <ScrollViewer Height="200">
+                    <ListBox x:Name="lstDestinations" BorderBrush="#E2E8F0" Background="White">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#E2E8F0" BorderThickness="0,0,0,1" Padding="5">
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" FontSize="11">
+                                            <Run Text="قیمت: "/><Run Text="{Binding Price}"/>
+                                            <Run Text="$/تن"/>
+                                        </TextBlock>
+                                        <TextBlock FontSize="10" Foreground="#7F8C8D">
+                                            <Run Text="فاصله: "/><Run Text="{Binding DistanceFromMine}"/>
+                                            <Run Text="کیلومتر"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+
+        <!-- Section 4: Fleet -->
+        <Border Grid.Row="1" Grid.Column="3" 
+                BorderBrush="#F39C12" BorderThickness="2" 
+                Margin="3" Background="White"
+                CornerRadius="5">
+            <StackPanel Margin="8">
+                <Border Background="#F39C12" Padding="8" Margin="0,0,0,8" CornerRadius="3">
+                    <TextBlock Text="🚛 4. ناوگان" FontSize="14" FontWeight="Bold" Foreground="White"/>
+                </Border>
+                
+                <Button x:Name="btnAddFleet" Click="BtnAddFleet_Click"
+                        Background="#F39C12" Foreground="White"
+                        Height="35" Margin="0,0,0,8">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock Text="➕ " FontSize="14"/>
+                        <TextBlock Text="افزودن ناوگان" FontSize="12"/>
+                    </StackPanel>
+                </Button>
+                
+                <ScrollViewer Height="200">
+                    <ListBox x:Name="lstFleets" BorderBrush="#E2E8F0" Background="White">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#E2E8F0" BorderThickness="0,0,0,1" Padding="5">
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" FontSize="11">
+                                            <Run Text="تعداد کامیون: "/><Run Text="{Binding NumberOfTrucks}"/>
+                                        </TextBlock>
+                                        <TextBlock FontSize="10" Foreground="#7F8C8D">
+                                            <Run Text="ظرفیت: "/><Run Text="{Binding TruckCapacity}"/>
+                                            <Run Text="{Binding TruckCapacityUnit}"/>
+                                        </TextBlock>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+
+        <!-- Section 5: Data Interaction -->
+        <Border Grid.Row="1" Grid.Column="4" 
+                BorderBrush="#9B59B6" BorderThickness="2" 
+                Margin="3" Background="White"
+                CornerRadius="5">
+            <StackPanel Margin="8">
+                <Border Background="#9B59B6" Padding="8" Margin="0,0,0,8" CornerRadius="3">
+                    <TextBlock Text="📋 5. مدیریت داده‌ها" FontSize="14" FontWeight="Bold" Foreground="White"/>
+                </Border>
+                
+                <WrapPanel Margin="0,0,0,8">
+                    <Button x:Name="btnShowPeriods" Click="BtnShowPeriods_Click"
+                            Background="#3498DB" Foreground="White"
+                            Height="30" Width="70" Margin="0,0,5,5">
+                        <StackPanel>
+                            <TextBlock Text="📅" FontSize="12" HorizontalAlignment="Center"/>
+                            <TextBlock Text="دوره‌ها" FontSize="9"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button x:Name="btnShowBlocks" Click="BtnShowBlocks_Click"
+                            Background="#27AE60" Foreground="White"
+                            Height="30" Width="70" Margin="0,0,5,5">
+                        <StackPanel>
+                            <TextBlock Text="⛏️" FontSize="12" HorizontalAlignment="Center"/>
+                            <TextBlock Text="بلوک‌ها" FontSize="9"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button x:Name="btnShowDestinations" Click="BtnShowDestinations_Click"
+                            Background="#E74C3C" Foreground="White"
+                            Height="30" Width="70" Margin="0,0,5,5">
+                        <StackPanel>
+                            <TextBlock Text="🏭" FontSize="12" HorizontalAlignment="Center"/>
+                            <TextBlock Text="مقصدها" FontSize="9"/>
+                        </StackPanel>
+                    </Button>
+                    
+                    <Button x:Name="btnShowFleets" Click="BtnShowFleets_Click"
+                            Background="#F39C12" Foreground="White"
+                            Height="30" Width="70" Margin="0,0,5,5">
+                        <StackPanel>
+                            <TextBlock Text="🚛" FontSize="12" HorizontalAlignment="Center"/>
+                            <TextBlock Text="ناوگان" FontSize="9"/>
+                        </StackPanel>
+                    </Button>
+                </WrapPanel>
+                
+                <Border Background="White" BorderBrush="#E2E8F0" BorderThickness="1"
+                        Height="280" CornerRadius="3">
+                    <ScrollViewer>
+                        <ItemsControl x:Name="dataItemsControl">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="#E2E8F0" BorderThickness="0,0,0,1" 
+                                            Padding="6" Margin="0,2">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <TextBlock Grid.Column="0" 
+                                                       Text="{Binding DisplayText}" 
+                                                       TextWrapping="Wrap"
+                                                       FontSize="10"/>
+                                            
+                                            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                                                <Button x:Name="btnEdit" Click="BtnEditRecord_Click"
+                                                        Tag="{Binding}"
+                                                        Background="#3498DB" Foreground="White"
+                                                        Width="28" Height="28" 
+                                                        Margin="0,0,3,0"
+                                                        ToolTip="ویرایش">
+                                                    <TextBlock Text="✏️" FontSize="12"/>
+                                                </Button>
+                                                
+                                                <Button x:Name="btnDelete" Click="BtnDeleteRecord_Click"
+                                                        Tag="{Binding}"
+                                                        Background="#E74C3C" Foreground="White"
+                                                        Width="28" Height="28"
+                                                        ToolTip="حذف">
+                                                    <TextBlock Text="🗑️" FontSize="12"/>
+                                                </Button>
+                                            </StackPanel>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <!-- Bottom Buttons -->
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="5" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,10,0,0">
+            <Button x:Name="btnCalculate" 
+                    Background="#27AE60" Foreground="White"
+                    Width="150" Height="40" 
+                    Margin="0,0,10,0"
+                    IsEnabled="False">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="📊 " FontSize="14"/>
+                    <TextBlock Text="محاسبه سود" FontSize="14" FontWeight="Bold"/>
+                </StackPanel>
+            </Button>
+            
+            <Button x:Name="btnBack" Click="BtnBack_Click"
+                    Background="#95A5A6" Foreground="White"
+                    Width="120" Height="40">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="🔙 " FontSize="14"/>
+                    <TextBlock Text="بازگشت" FontSize="14"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

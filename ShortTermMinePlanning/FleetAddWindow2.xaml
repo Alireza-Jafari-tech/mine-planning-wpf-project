@@ -1,0 +1,187 @@
+<Window x:Class="ShortTermMinePlanning.FleetAddWindow2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="🚛 افزودن/ویرایش ناوگان" 
+        Height="650" Width="700"
+        WindowStartupLocation="CenterOwner"
+        FlowDirection="RightToLeft"
+        Background="White"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#E67E22" Padding="10" Margin="0,0,0,15" CornerRadius="5">
+            <TextBlock Text="🚛 اطلاعات ناوگان" 
+                       FontSize="16" FontWeight="Bold" 
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <TabControl Grid.Row="1">
+            <!-- Tab 1: Truck -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🚛 " Margin="0,0,5,0"/>
+                        <TextBlock Text="کامیون"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="تعداد کامیون‌ها:" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtNumberOfTrucks" Grid.Row="1" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="2" Text="تعداد کامیون‌های موجود در ناوگان" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,10"/>
+
+                    <TextBlock Grid.Row="3" Text="ظرفیت هر کامیون:" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,0,0,15">
+                        <TextBox x:Name="txtTruckCapacity" Width="150" Height="35"/>
+                        <ComboBox x:Name="cboCapacityUnit" Width="100" Height="35" Margin="10,0,0,0"
+                                  SelectedIndex="0">
+                            <ComboBoxItem Content="تن"/>
+                            <ComboBoxItem Content="هزار تن"/>
+                            <ComboBoxItem Content="میلیون تن"/>
+                        </ComboBox>
+                    </StackPanel>
+                    <TextBlock Grid.Row="5" Text="حداکثر باری که هر کامیون می‌تواند حمل کند" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,10"/>
+
+                    <TextBlock Grid.Row="6" Text="هزینه حمل (دلار/تن):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtTransportationCost" Grid.Row="7" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="8" Text="هزینه حمل هر تن ماده معدنی (شامل سوخت، نگهداری، راننده)" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,0"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab 2: Time -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="⏱️ " Margin="0,0,5,0"/>
+                        <TextBlock Text="زمان"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="سرعت کامیون (کیلومتر/ساعت):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtTruckSpeed" Grid.Row="1" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="2" Text="سرعت متوسط کامیون در جاده" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,10"/>
+
+                    <TextBlock Grid.Row="3" Text="زمان بارگیری (ساعت):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtLoadTime" Grid.Row="4" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="5" Text="زمان مورد نیاز برای بارگیری هر کامیون (مثال: 0.5 = 30 دقیقه)" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,10"/>
+
+                    <TextBlock Grid.Row="6" Text="زمان تخلیه (ساعت):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtUnloadTime" Grid.Row="7" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="8" Text="زمان مورد نیاز برای تخلیه بار در مقصد (مثال: 0.25 = 15 دقیقه)" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,0"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab 3: Distance -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="📏 " Margin="0,0,5,0"/>
+                        <TextBlock Text="فاصله"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="فاصله کامیون از بلوک (کیلومتر):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtDistanceFromBlock" Grid.Row="1" 
+                             Height="35"/>
+                    <TextBlock Grid.Row="2" Text="فاصله محل استقرار کامیون تا بلوک استخراج" 
+                               FontSize="10" Foreground="Gray" Margin="0,0,0,10"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab 4: Time Period -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="📅 " Margin="0,0,5,0"/>
+                        <TextBlock Text="دوره زمانی"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="تعداد سفر در دوره:" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtTripsPerPeriod" Grid.Row="1" 
+                             Height="35"/>
+                    <TextBlock Grid.Row="2" Text="تعداد سفرهایی که هر کامیون در دوره زمانی مشخص می‌تواند انجام دهد" 
+                               FontSize="10" Foreground="Gray" Margin="0,0,0,10"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Center" Margin="0,15,0,0">
+            <Button x:Name="btnSave" Click="BtnSave_Click"
+                    Background="#27AE60" Foreground="White"
+                    Width="100" Height="40" 
+                    Margin="0,0,10,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="💾 " FontSize="14"/>
+                    <TextBlock Text="ذخیره" FontSize="14"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnCancel" Click="BtnCancel_Click"
+                    Background="#95A5A6" Foreground="White"
+                    Width="100" Height="40">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="❌ " FontSize="14"/>
+                    <TextBlock Text="انصراف" FontSize="14"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>

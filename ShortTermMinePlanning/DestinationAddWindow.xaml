@@ -1,0 +1,166 @@
+<Window x:Class="ShortTermMinePlanning.DestinationAddWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="🏭 افزودن/ویرایش مقصد" 
+        Height="600" Width="650"
+        WindowStartupLocation="CenterOwner"
+        FlowDirection="RightToLeft"
+        Background="White"
+        WindowStyle="SingleBorderWindow"
+        ResizeMode="NoResize">
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="#E74C3C" Padding="10" Margin="0,0,0,15" CornerRadius="5">
+            <TextBlock Text="🏭 اطلاعات مقصد" 
+                       FontSize="16" FontWeight="Bold" 
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <TabControl Grid.Row="1">
+            <!-- Tab 1: Price/Income -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="💰 " Margin="0,0,5,0"/>
+                        <TextBlock Text="قیمت و درآمد"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="قیمت فروش (دلار/تن):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtPrice" Grid.Row="1" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="2" Text="قیمت فروش هر تن ماده معدنی بر اساس عیار و کیفیت" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,0"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab 2: Cost -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="🚚 " Margin="0,0,5,0"/>
+                        <TextBlock Text="هزینه حمل"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="هزینه حمل به مقصد (دلار/تن):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtTransportationCost" Grid.Row="1" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="2" Text="هزینه حمل هر تن ماده معدنی از معدن تا مقصد" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,0"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab 3: Distance -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="📏 " Margin="0,0,5,0"/>
+                        <TextBlock Text="فاصله"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="فاصله از معدن (کیلومتر):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtDistance" Grid.Row="1" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="2" Text="فاصله معدن تا مقصد (بر حسب کیلومتر)" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,0"/>
+                </Grid>
+            </TabItem>
+
+            <!-- Tab 4: Details -->
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="📋 " Margin="0,0,5,0"/>
+                        <TextBlock Text="مشخصات فنی"/>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="15">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Text="نرخ بازیابی (%):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <Slider x:Name="sliderRecovery" Grid.Row="1" 
+                            Minimum="0" Maximum="100" Value="85"
+                            TickFrequency="5" IsSnapToTickEnabled="True"
+                            Margin="0,5,0,10"/>
+                    <TextBlock Grid.Row="2" Text="{Binding ElementName=sliderRecovery, Path=Value, StringFormat={}{0:F0}%}" 
+                               HorizontalAlignment="Center" FontWeight="Bold" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="3" Text="درصد ماده معدنی که قابل بازیافت است" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,15"/>
+
+                    <TextBlock Grid.Row="4" Text="حداقل عیار قابل قبول (%):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtMinGrade" Grid.Row="5" 
+                             Height="35" Margin="0,0,0,15"/>
+                    <TextBlock Grid.Row="6" Text="کمترین عیاری که مقصد قبول می‌کند" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,15"/>
+
+                    <TextBlock Grid.Row="7" Text="حداکثر عیار قابل قبول (%):" FontWeight="Bold" Margin="0,0,0,5"/>
+                    <TextBox x:Name="txtMaxGrade" Grid.Row="8" 
+                             Height="35"/>
+                    <TextBlock Grid.Row="9" Text="بیشترین عیاری که مقصد قبول می‌کند" 
+                               FontSize="10" Foreground="Gray" Margin="0,-10,0,0"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Center" Margin="0,15,0,0">
+            <Button x:Name="btnSave" Click="BtnSave_Click"
+                    Background="#27AE60" Foreground="White"
+                    Width="100" Height="40" 
+                    Margin="0,0,10,0">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="💾 " FontSize="14"/>
+                    <TextBlock Text="ذخیره" FontSize="14"/>
+                </StackPanel>
+            </Button>
+
+            <Button x:Name="btnCancel" Click="BtnCancel_Click"
+                    Background="#95A5A6" Foreground="White"
+                    Width="100" Height="40">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="❌ " FontSize="14"/>
+                    <TextBlock Text="انصراف" FontSize="14"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
