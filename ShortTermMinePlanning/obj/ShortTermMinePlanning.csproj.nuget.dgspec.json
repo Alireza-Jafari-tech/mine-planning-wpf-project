@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Data\\Desktop\\ShortTermMinePlanning\\ShortTermMinePlanning.csproj": {}
+    "C:\\Users\\Data\\Desktop\\mine-planning-wpf-project\\ShortTermMinePlanning\\ShortTermMinePlanning.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Data\\Desktop\\ShortTermMinePlanning\\ShortTermMinePlanning.csproj": {
+    "C:\\Users\\Data\\Desktop\\mine-planning-wpf-project\\ShortTermMinePlanning\\ShortTermMinePlanning.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Data\\Desktop\\ShortTermMinePlanning\\ShortTermMinePlanning.csproj",
+        "projectUniqueName": "C:\\Users\\Data\\Desktop\\mine-planning-wpf-project\\ShortTermMinePlanning\\ShortTermMinePlanning.csproj",
         "projectName": "ShortTermMinePlanning",
-        "projectPath": "C:\\Users\\Data\\Desktop\\ShortTermMinePlanning\\ShortTermMinePlanning.csproj",
+        "projectPath": "C:\\Users\\Data\\Desktop\\mine-planning-wpf-project\\ShortTermMinePlanning\\ShortTermMinePlanning.csproj",
         "packagesPath": "C:\\Users\\Data\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Data\\Desktop\\ShortTermMinePlanning\\obj\\",
+        "outputPath": "C:\\Users\\Data\\Desktop\\mine-planning-wpf-project\\ShortTermMinePlanning\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

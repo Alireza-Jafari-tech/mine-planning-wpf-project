@@ -25,6 +25,7 @@ namespace ShortTermMinePlanning
     }
 
     // Block for Model 2
+    // Block for Model 2
     public class Block2
     {
         public int Id { get; set; }
@@ -33,6 +34,7 @@ namespace ShortTermMinePlanning
         public TonnageUnit TonnageUnit { get; set; }
         public double Grade { get; set; } // Only for Ore, 0 for Waste
         public double ExtractionPercent { get; set; } = 100;
+        public int LayerNumber { get; set; } // For extraction sequence (1 = top layer, higher numbers = below)
 
         public double TonnageInTons
         {

@@ -1,7 +1,12 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Data\\Desktop\\ShortTermMinePlanning\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\Data\\Desktop\\mine-planning-wpf-project\\ShortTermMinePlanning\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5678B315-695A-2A4F-1069-AC51EAEF7498}|ShortTermMinePlanning.csproj|c:\\users\\data\\desktop\\mine-planning-wpf-project\\shorttermmineplanning\\mainplanningwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{5678B315-695A-2A4F-1069-AC51EAEF7498}|ShortTermMinePlanning.csproj|solutionrelative:mainplanningwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +14,23 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainPlanningWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Data\\Desktop\\mine-planning-wpf-project\\ShortTermMinePlanning\\MainPlanningWindow.xaml",
+              "RelativeDocumentMoniker": "MainPlanningWindow.xaml",
+              "ToolTip": "C:\\Users\\Data\\Desktop\\mine-planning-wpf-project\\ShortTermMinePlanning\\MainPlanningWindow.xaml",
+              "RelativeToolTip": "MainPlanningWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-05-08T04:11:58.594Z",
+              "EditorCaption": ""
             }
           ]
         }

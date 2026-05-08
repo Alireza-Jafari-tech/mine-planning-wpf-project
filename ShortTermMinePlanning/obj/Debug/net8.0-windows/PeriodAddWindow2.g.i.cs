@@ -116,7 +116,7 @@ namespace ShortTermMinePlanning {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ShortTermMinePlanning;component/periodaddwindow2.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ShortTermMinePlanning;V1.0.0.0;component/periodaddwindow2.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\PeriodAddWindow2.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

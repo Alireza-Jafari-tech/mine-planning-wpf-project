@@ -26,6 +26,7 @@ namespace ShortTermMinePlanning
         {
             SetPlaceholder(txtTonnage, "مثال: 100");
             SetPlaceholder(txtGrade, "مثال: 2.5");
+            SetPlaceholder(txtLayerNumber, "مثال: 1");
         }
 
         private void SetPlaceholder(TextBox textBox, string placeholder)
@@ -79,6 +80,7 @@ namespace ShortTermMinePlanning
             txtTonnage.Text = editingBlock.Tonnage.ToString();
             cboUnit.SelectedIndex = (int)editingBlock.TonnageUnit;
             sliderExtractionPercent.Value = editingBlock.ExtractionPercent;
+            txtLayerNumber.Text = editingBlock.LayerNumber.ToString();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -87,7 +89,14 @@ namespace ShortTermMinePlanning
             {
                 if (!double.TryParse(txtTonnage.Text, out double tonnage) || tonnage <= 0)
                 {
-                    MessageBox.Show("لطفاً مقدار تناژ معتبر وارد کنید", "خطا",
+                    MessageBox.Show("لطفاً مقدار توناز معتبر وارد کنید", "خطا",
+                                  MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (!int.TryParse(txtLayerNumber.Text, out int layerNumber) || layerNumber <= 0)
+                {
+                    MessageBox.Show("لطفاً شماره لایه معتبر (عدد صحیح مثبت) وارد کنید", "خطا",
                                   MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
@@ -111,7 +120,8 @@ namespace ShortTermMinePlanning
                     Tonnage = tonnage,
                     TonnageUnit = (TonnageUnit)cboUnit.SelectedIndex,
                     Grade = grade,
-                    ExtractionPercent = sliderExtractionPercent.Value
+                    ExtractionPercent = sliderExtractionPercent.Value,
+                    LayerNumber = layerNumber
                 };
 
                 if (editingBlock != null)

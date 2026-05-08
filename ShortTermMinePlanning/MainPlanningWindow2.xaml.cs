@@ -92,7 +92,8 @@ namespace ShortTermMinePlanning
             {
                 Id = b.Id,
                 DisplayText = $"⛏️ بلوک: {(b.BlockType == BlockType.سنگ_معدن ? "سنگ معدن" : "باطله")}\n" +
-                             $"تناژ: {b.Tonnage:N0} {GetUnitText(b.TonnageUnit)}" +
+                             $"لایه: {b.LayerNumber}\n" +
+                             $"توناز: {b.Tonnage:N0} {GetUnitText(b.TonnageUnit)}" +
                              (b.BlockType == BlockType.سنگ_معدن ? $"\nعیار: {b.Grade:F2}%" : ""),
                 OriginalObject = b
             }).ToList();

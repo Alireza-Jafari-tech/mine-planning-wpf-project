@@ -132,7 +132,7 @@ namespace ShortTermMinePlanning {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ShortTermMinePlanning;component/capacityaddwindow2.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ShortTermMinePlanning;V1.0.0.0;component/capacityaddwindow2.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\CapacityAddWindow2.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

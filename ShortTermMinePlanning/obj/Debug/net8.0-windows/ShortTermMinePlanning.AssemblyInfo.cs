@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShortTermMinePlanning")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f0740627a9d7776924590ded83bbd607577eab03")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShortTermMinePlanning")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShortTermMinePlanning")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
